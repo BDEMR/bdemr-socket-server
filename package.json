@@ -1,0 +1,24 @@
+{
+  "name": "bdemr-socket-server",
+  "version": "0.0.1",
+  "description": "server for Websocket specific tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BDEMR/bdemr-socket-server.git"
+  },
+  "author": "",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/BDEMR/bdemr-socket-server/issues"
+  },
+  "homepage": "https://github.com/BDEMR/bdemr-socket-server#readme",
+  "dependencies": {
+    "user-home": "^2.0.0",
+    "ws": "^6.0.0"
+  }
+}
