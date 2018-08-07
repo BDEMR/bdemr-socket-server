@@ -4,7 +4,7 @@
     "cert": "/path/to/cert.pem",
     "key": "/path/to/key.pem"
   },
-  "port": 8080,
+  "port": 8065,
   "db": {
     "path": ""
   }

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/BDEMR/bdemr-socket-server#readme",
   "dependencies": {
+    "request": "^2.87.0",
     "user-home": "^2.0.0",
     "ws": "^6.0.0"
   }

@@ -6,6 +6,8 @@ const WebSocket = require('ws');
 const pathlib = require("path");
 const userHomeDir = require('user-home');
 
+const proxier = require('./proxier');
+
 const config = (() => {
   try {
     return JSON.parse(fs.readFileSync(pathlib.join(userHomeDir, "/bdemr-lite-config.json"), 'utf8'));
@@ -27,12 +29,22 @@ const webServer = (() => {
 
 const wss = new WebSocket.Server({ server: webServer });
 
-
 wss.on('connection', (ws) => {
 
   ws.on('message', (message) => {
-    console.log('received: %s', message);
-
+    try {
+      message = JSON.parse(message);
+    } catch (ex) {
+      console.err(ex);
+      return;
+    }
+    if (message.type === 'request-proxy--request') {
+      let { uid, request } = message;
+      let { path, data } = request;
+      proxier.proxyRequest(ws, { path, data, uid });
+    } else {
+      console.log('received uknown: %s', message);
+    }
   });
 
   ws.on('close', (code) => {
